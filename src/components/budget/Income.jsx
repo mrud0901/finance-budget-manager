@@ -12,15 +12,22 @@ function Income({ onSetIncome }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="number"
-        placeholder="Enter monthly income"
-        value={income}
-        onChange={(e) => setIncome(e.target.value)}
-      />
-      <button type="submit">Set Income</button>
-    </form>
+    <form onSubmit={handleSubmit} className="flex gap-2 items-center">
+  <input
+    type="number"
+    placeholder="Enter monthly income"
+    value={income}
+    onChange={(e) => setIncome(e.target.value)}
+    className="border p-2 rounded w-64"
+  />
+  <button
+    type="submit"
+    className="bg-blue-600 text-white px-4 py-2 rounded"
+  >
+    Set Income
+  </button>
+</form>
+
   );
 }
 

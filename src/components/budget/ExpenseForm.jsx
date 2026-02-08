@@ -21,23 +21,32 @@ function ExpenseForm({ onAddExpense }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Expense title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
+    <form onSubmit={handleSubmit} className="flex gap-2">
+  <input
+    type="text"
+    placeholder="Expense title"
+    value={title}
+    onChange={(e) => setTitle(e.target.value)}
+    className="border p-2 rounded w-48"
+  />
 
-      <input
-        type="number"
-        placeholder="Amount"
-        value={amount}
-        onChange={(e) => setAmount(e.target.value)}
-      />
+  <input
+    type="number"
+    placeholder="Amount"
+    value={amount}
+    onChange={(e) => setAmount(e.target.value)}
+    className="border p-2 rounded w-32"
+  />
 
-      <button type="submit">Add Expense</button>
-    </form>
+  <button
+    type="submit"
+    className="bg-red-500 text-white px-4 py-2 rounded"
+  >
+    Add
+  </button>
+</form>
+
+    
   );
 }
 

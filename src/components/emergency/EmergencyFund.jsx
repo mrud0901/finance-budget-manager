@@ -18,15 +18,23 @@ function EmergencyFund({ target, current, onAdd }) {
       <p>Target: ₹{target}</p>
       <p>Saved: ₹{current}</p>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="number"
-          placeholder="Add emergency amount"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
-        />
-        <button type="submit">Add</button>
-      </form>
+      <form onSubmit={handleSubmit} className="flex gap-2 mt-2">
+  <input
+    type="number"
+    placeholder="Add emergency fund"
+    value={amount}
+    onChange={(e) => setAmount(e.target.value)}
+    className="border p-2 rounded w-48"
+  />
+  <button
+    type="submit"
+    className="bg-orange-500 text-white px-4 py-2 rounded"
+  >
+    Add
+  </button>
+</form>
+
+      
     </div>
   );
 }

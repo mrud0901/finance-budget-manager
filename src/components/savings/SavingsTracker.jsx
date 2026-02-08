@@ -14,15 +14,23 @@ function SavingsTracker({ onSave }) {
   return (
     <div>
       <h2>Savings</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="number"
-          placeholder="Add savings amount"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
-        />
-        <button type="submit">Add to Savings</button>
-      </form>
+      <form onSubmit={handleSubmit} className="flex gap-2">
+  <input
+    type="number"
+    placeholder="Add savings"
+    value={amount}
+    onChange={(e) => setAmount(e.target.value)}
+    className="border p-2 rounded w-48"
+  />
+  <button
+    type="submit"
+    className="bg-green-600 text-white px-4 py-2 rounded"
+  >
+    Save
+  </button>
+</form>
+
+      
     </div>
   );
 }

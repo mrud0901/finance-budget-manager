@@ -20,25 +20,32 @@ function AssetForm({ onAddAsset }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Add Asset</h2>
+    <form onSubmit={handleSubmit} className="flex gap-2 flex-wrap">
+  <input
+    type="text"
+    placeholder="Asset name"
+    value={name}
+    onChange={(e) => setName(e.target.value)}
+    className="border p-2 rounded w-48"
+  />
 
-      <input
-        type="text"
-        placeholder="Asset name (Gold, Cash, MF...)"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
+  <input
+    type="number"
+    placeholder="Asset value"
+    value={value}
+    onChange={(e) => setValue(e.target.value)}
+    className="border p-2 rounded w-40"
+  />
 
-      <input
-        type="number"
-        placeholder="Asset value"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-      />
+  <button
+    type="submit"
+    className="bg-purple-600 text-white px-4 py-2 rounded"
+  >
+    Add Asset
+  </button>
+</form>
 
-      <button type="submit">Add Asset</button>
-    </form>
+    
   );
 }
 
