@@ -65,31 +65,58 @@ function App() {
         </h1>
 
         {/* INCOME SECTION */}
-        <h2 className="text-lg font-semibold">
-          Monthly Income
-        </h2>
+        <div className="bg-white p-6 rounded-lg shadow space-y-4">
+          <h2 className="text-lg font-semibold">
+            Monthly Income
+          </h2>
         <Income onSetIncome={setIncome} />
-        <h3 className="font-medium">
-          Income: ₹{income}
-        </h3>
+        <p className="text-gray-600">
+            Current Income: <span className="font-semibold">₹{income}</span>
+        </p>
+      </div>
 
-        {/* EXPENSE SECTION */}
-        <h2 className="text-lg font-semibold">
-          Add Expense
-        </h2>
+        
+
+        <div className="bg-white p-6 rounded-lg shadow space-y-4">
+  <h2 className="text-lg font-semibold">
+    Expenses
+  </h2>
+
+  <ExpenseForm
+    onAddExpense={(expense) =>
+      setExpenses((prev) => [expense, ...prev])
+    }
+  />
+
+  <ExpenseList expenses={expenses} />
+
+  <p className="text-red-600 font-semibold">
+    Total Expenses: ₹{totalExpenses}
+  </p>
+
+  <p className="font-medium">
+    Balance: ₹{balance}
+  </p>
+</div>
+
+
+        <div className="bg-white p-6 rounded-lg shadow space-y-4">
+          <h2 className="text-lg font-semibold">
+            Expenses
+          </h2>
         <ExpenseForm
-          onAddExpense={(expense) =>
-            setExpenses((prev) => [expense, ...prev])
-          }
-        />
+        onAddExpense={(expense) =>
+        setExpenses((prev) => [expense, ...prev])
+       }
+      />
 
-        <h2 className="text-lg font-semibold">
-          Expenses
-        </h2>
-        <ExpenseList expenses={expenses} />
-        <h3 className="font-medium">
-          Total Expenses: ₹{totalExpenses}
-        </h3>
+       <ExpenseList expenses={expenses} />
+
+      <p className="text-red-600 font-semibold">
+        Total Expenses: ₹{totalExpenses}
+      </p>
+    </div>
+
 
         {/* BALANCE */}
         <h3 className="font-medium">
@@ -102,16 +129,41 @@ function App() {
           Total Savings: ₹{savings}
         </h3>
 
-        {/* EMERGENCY FUND */}
-        <EmergencyFund
+        <div className="bg-white p-6 rounded-lg shadow space-y-4">
+          <h2 className="text-lg font-semibold">
+            Emergency Fund
+          </h2>
+          <EmergencyFund
           target={emergencyTarget}
           current={emergencyFund}
           onAdd={addToEmergency}
-        />
+          />
 
-        {/* ASSETS */}
-        <AssetForm onAddAsset={addAsset} />
-        <AssetList assets={assets} />
+          <p className="text-yellow-600 font-semibold">
+          Target: ₹{emergencyTarget}
+          </p>
+          
+          <p className="text-green-600 font-semibold">
+            Current Saved: ₹{emergencyFund}
+          </p>
+        </div>
+        <div className="bg-white p-6 rounded-lg shadow space-y-4">
+  <h2 className="text-lg font-semibold">
+    Assets
+  </h2>
+
+  <AssetForm onAddAsset={addAsset} />
+
+  <AssetList assets={assets} />
+
+  <p className="text-purple-600 font-semibold">
+    Total Assets: ₹{totalAssets}
+  </p>
+</div>
+
+
+
+        
       </div>
     </>
   );
