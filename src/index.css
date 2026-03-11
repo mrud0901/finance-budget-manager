@@ -1,7 +1,58 @@
-body {
-  margin: 0;
-  font-family: sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply m-0 text-slate-800 bg-slate-50 font-['Outfit',sans-serif];
+    /* Premium moving gradient background */
+    background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 25%, #f5e6ff 50%, #ffe4e6 75%, #fff0f4 100%);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-lg border border-white/40 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] rounded-2xl;
+  }
+  
+  .glass-input {
+    @apply bg-white/50 border border-slate-200/50 backdrop-blur-md rounded-xl focus:ring-2 focus:ring-indigo-400 focus:border-transparent focus:bg-white focus:outline-none transition-all duration-300;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white font-medium rounded-xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300;
+  }
+}
+
+@layer utilities {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

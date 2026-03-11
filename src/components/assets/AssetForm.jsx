@@ -20,13 +20,13 @@ function AssetForm({ onAddAsset }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex gap-2 flex-wrap">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-3 w-full">
   <input
     type="text"
     placeholder="Asset name"
     value={name}
     onChange={(e) => setName(e.target.value)}
-    className="border p-2 rounded w-48"
+    className="glass-input p-3 w-full text-slate-700 placeholder:text-slate-400"
   />
 
   <input
@@ -34,12 +34,12 @@ function AssetForm({ onAddAsset }) {
     placeholder="Asset value"
     value={value}
     onChange={(e) => setValue(e.target.value)}
-    className="border p-2 rounded w-40"
+    className="glass-input p-3 w-full text-slate-700 placeholder:text-slate-400"
   />
 
   <button
     type="submit"
-    className="bg-purple-600 text-white px-4 py-2 rounded"
+    className="btn-primary w-full py-3 mt-1"
   >
     Add Asset
   </button>

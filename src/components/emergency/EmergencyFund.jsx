@@ -12,29 +12,22 @@ function EmergencyFund({ target, current, onAdd }) {
   }
 
   return (
-    <div>
-      <h2>Emergency Fund</h2>
-
-      <p>Target: ₹{target}</p>
-      <p>Saved: ₹{current}</p>
-
-      <form onSubmit={handleSubmit} className="flex gap-2 mt-2">
-  <input
-    type="number"
-    placeholder="Add emergency fund"
-    value={amount}
-    onChange={(e) => setAmount(e.target.value)}
-    className="border p-2 rounded w-48"
-  />
-  <button
-    type="submit"
-    className="bg-orange-500 text-white px-4 py-2 rounded"
-  >
-    Add
-  </button>
-</form>
-
-      
+    <div className="w-full">
+      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 w-full">
+        <input
+          type="number"
+          placeholder="Add to fund"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+          className="glass-input p-3 w-full sm:flex-1 text-slate-700 placeholder:text-slate-400"
+        />
+        <button
+          type="submit"
+          className="btn-primary px-6 py-3 w-full sm:w-auto"
+        >
+          Add
+        </button>
+      </form>
     </div>
   );
 }
